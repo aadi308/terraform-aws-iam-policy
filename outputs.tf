@@ -6,10 +6,10 @@
 # OUTPUT ALL RESOURCES AS FULL OBJECTS
 # ------------------------------------------------------------------------------
 
-output "policy" {
-  description = "The aws_iam_policy object."
-  value       = try(aws_iam_policy.policy[0], null)
-}
+# output "policy" {
+#   description = "The aws_iam_policy object."
+#   value       = try(aws_iam_policy.policy[0], null)
+# }
 
 output "policy_attachment" {
   description = "The aws_iam_policy_attachment object."
@@ -19,7 +19,10 @@ output "arn" {
   description = "The ARN assigned by AWS to this policy"
   value       = try(aws_iam_policy.policy[0].arn, "")
 }
-
+output "policy" {
+  description = "The policy document"
+  value       = try(aws_iam_policy.policy[0].policy, "")
+}
 # ------------------------------------------------------------------------------
 # OUTPUT ALL INPUT VARIABLES
 # ------------------------------------------------------------------------------
